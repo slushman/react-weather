@@ -1,19 +1,43 @@
 var React = require( 'react' );
 var {Link, IndexLink} = require( 'react-router' );
 
-/**
- * Switched to stateless component
- * with arrow function.
- */
-var Nav = ( props ) => {
-	return (
-		<div>
-			<h2>Nav Component</h2>
-			<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Get Weather</IndexLink>
-			<Link to="/about" activeClassName="active" activeStyle={{fontWeight:'bold'}}>About</Link>
-			<Link to="/examples" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Examples</Link>
-		</div>
-	);
-}
+var Nav = React.createClass({
+	onSearch: function(e) {
+		e.preventDefault();
+		alert('Not wired up yet');
+	},
+	render: function() {
+		return (
+			<div className="top-bar">
+				<div className="top-bar-left">
+					<ul className="menu">
+						<li className="menutext">React Weather App</li>
+						<li>
+							<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Get Weather</IndexLink>
+						</li>
+						<li>
+							<Link to="/about" activeClassName="active" activeStyle={{fontWeight:'bold'}}>About</Link>
+						</li>
+						<li>
+							<Link to="/examples" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Examples</Link>
+						</li>
+					</ul>
+				</div>
+				<div className="top-bar-right">
+					<form onSubmit={this.onSearch}>
+						<ul className="menu">
+							<li>
+								<input placeholder="Search weather" type="search"/>
+							</li>
+							<li>
+								<input className="button" type="submit" value="Get Weather"/>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		);
+	}
+});
 
 module.exports = Nav;

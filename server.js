@@ -6,13 +6,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use( function( request, response, next ){
 
-	if ( 'http' === request.headers['x-forwarded-proto'] ) {
+	if ( 'https' === request.headers['x-forwarded-proto'] ) {
 
-		next();
+		response.redirect( 'http://' + request.hostname + request.url );
 
 	} else {
 
-		response.redirect( 'http://' + request.hostname + request.url );
+		next();
 
 	}
 

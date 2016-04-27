@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use( function( request, response, next ){
 
-	if ( 'http' === request.headers['x-forward-proto'] ) {
+	if ( request.headers['x-forward-proto'] === 'http' ) {
 
 		next();
 

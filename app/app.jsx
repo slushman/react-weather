@@ -7,7 +7,7 @@ var About = require( 'About' );
 var Examples = require( 'Examples' );
 
 ReactDOM.render(
-	<Router history={browserHistory}>
+	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
 			<Route path="about" component={About}/>
 			<Route path="examples" component={Examples}/>

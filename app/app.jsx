@@ -11,7 +11,7 @@ require( 'style!css!foundation-sites/dist/foundation.min.css' );
 $(document).foundation();
 
 ReactDOM.render(
-	<Router history={browserHistory}>
+	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
 			<Route path="about" component={About}/>
 			<Route path="examples" component={Examples}/>
